@@ -76,7 +76,7 @@ class Fabrication::Generator::Base
   end
 
   def method_missing(method_name, *args, &block)
-    _attributes[method_name] || super
+    _attributes.has_key? method_name ? _attributes[method_name] : super
   end
 
   protected
